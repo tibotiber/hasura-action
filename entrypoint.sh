@@ -7,7 +7,7 @@ if [ -z "$HASURA_ENDPOINT" ]; then
     exit 126
 fi
 
-command="firebase $* --endpoint $HASURA_ENDPOINT"
+command="hasura $* --endpoint $HASURA_ENDPOINT"
 
 if [ -n "$HASURA_ADMIN_SECRET" ]; then
     command="$command --admin-secret $HASURA_ADMIN_SECRET"
