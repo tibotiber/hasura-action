@@ -22,7 +22,6 @@ on:
   push:
     branches:
       - master
-
 jobs:
   hasura_migration:
     name: Hasura migration
