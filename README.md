@@ -10,7 +10,9 @@ This Action for [Hasura](https://hasura.io) enables arbitrary actions with the `
 
 - `HASURA_ENDPOINT` - **Required**. The endpoint of the Hasura GraphQL engine.
 
-- `HASURA_ADMIN_SECRET` - **Optional**. The admin secret (if any) for the Hasura GraphQL engine
+- `HASURA_ADMIN_SECRET` - **Optional**. The admin secret (if any) for the Hasura GraphQL engine.
+
+- `HASURA_WORKDIR` - **Optional**. The path from the root of your repository to the directory where the `migrations` folder can be found.
 
 ## Example
 
@@ -29,7 +31,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-      - run: cd hasura/migrations # replace this by your own path
       - name: Apply hasura migrations
         uses: tibotiber/hasura-action@master
         with:
@@ -37,6 +38,7 @@ jobs:
         env:
           HASURA_ENDPOINT: ${{ secrets.HASURA_ENDPOINT }}
           HASURA_ADMIN_SECRET: ${{ secrets.HASURA_ADMIN_SECRET }}
+          HASURA_WORKDIR: backend/hasura # replace this by your own path if needed
 ```
 
 ## License

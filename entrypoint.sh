@@ -13,4 +13,8 @@ if [ -n "$HASURA_ADMIN_SECRET" ]; then
     command="$command --admin-secret $HASURA_ADMIN_SECRET"
 fi
 
+if [ -n "$HASURA_WORKDIR" ]; then
+    cd $HASURA_WORKDIR
+fi
+
 sh -c $command
