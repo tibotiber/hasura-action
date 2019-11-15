@@ -17,9 +17,10 @@ if [ -n "$HASURA_WORKDIR" ]; then
     cd $HASURA_WORKDIR
 fi
 
-# debug
-echo "Content of working directory:"
-ls
+# create mock config file if none found
+if [ ! -f config.yaml ]; then
+    touch config.yaml
+fi
 
 # secrets can be printed, they are protected by Github Actions
 echo "Executing '$command' from '${HASURA_WORKDIR:-./}'"
