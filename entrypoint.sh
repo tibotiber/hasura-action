@@ -17,7 +17,11 @@ if [ -n "$HASURA_WORKDIR" ]; then
     cd $HASURA_WORKDIR
 fi
 
+# debug
+echo "Content of working directory:"
+ls
+
 # secrets can be printed, they are protected by Github Actions
-echo "Executing '$command' from ${HASURA_WORKDIR:-./}"
+echo "Executing '$command' from '${HASURA_WORKDIR:-./}'"
 
 sh -c "$command"
