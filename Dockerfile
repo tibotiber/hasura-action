@@ -5,7 +5,7 @@ LABEL homepage="https://github.com/tibotiber/hasura-action"
 LABEL maintainer="Thibaut Tiberghien <thibaut@smplrspace.com>"
 
 LABEL com.github.actions.name="GitHub Action for Hasura"
-LABEL com.github.actions.description="Wraps the hasure CLI to enable common commands."
+LABEL com.github.actions.description="Wraps the Hasura CLI to enable common commands."
 LABEL com.github.actions.icon="terminal"
 LABEL com.github.actions.color="gray-dark"
 
