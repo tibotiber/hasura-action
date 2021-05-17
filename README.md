@@ -14,6 +14,8 @@ This Action for [Hasura](https://hasura.io) enables arbitrary actions with the `
 
 - `HASURA_WORKDIR` - **Optional**. The path from the root of your repository to the directory where the `migrations` folder can be found.
 
+- `HASURA_ENGINE_VERSION` - **Optional**. The version of the hasura cli you want to use. (default is `stable`)
+
 ## Example
 
 To apply migrations with the Hasura CLI:
@@ -39,6 +41,7 @@ jobs:
           HASURA_ENDPOINT: ${{ secrets.HASURA_ENDPOINT }}
           HASURA_ADMIN_SECRET: ${{ secrets.HASURA_ADMIN_SECRET }}
           HASURA_WORKDIR: backend/hasura # replace this by your own path if needed
+          HASURA_ENGINE_VERSION: v1.3.3 # replace this by the version you need, remove to use stable
 ```
 
 ## License

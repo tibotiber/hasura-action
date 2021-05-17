@@ -22,6 +22,11 @@ if [ ! -f config.yaml ]; then
     touch config.yaml
 fi
 
+if [ -n "$HASURA_ENGINE_VERSION" ]; then
+    hasura update-cli --version $HASURA_ENGINE_VERSION
+fi
+
+
 # secrets can be printed, they are protected by Github Actions
 echo "Executing $command from ${HASURA_WORKDIR:-./}"
 
