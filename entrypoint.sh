@@ -30,10 +30,9 @@ fi
 
 if [ -n "$HASURA_ENGINE_VERSION" ]; then
     hasura update-cli --version $HASURA_ENGINE_VERSION
-elif [ "$CURRENT_HASURA_CLI_VERSION" != "$DETECTED_HASURA_ENGINE_VERSION" ]; then
+elif [ -n "$DETECTED_HASURA_ENGINE_VERSION" ] && [ "$CURRENT_HASURA_CLI_VERSION" != "$DETECTED_HASURA_ENGINE_VERSION" ]; then
     hasura update-cli --version $DETECTED_HASURA_ENGINE_VERSION
 fi
-
 
 # secrets can be printed, they are protected by Github Actions
 echo "Executing $command from ${HASURA_WORKDIR:-./}"
