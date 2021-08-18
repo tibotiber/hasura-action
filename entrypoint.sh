@@ -30,9 +30,7 @@ else
     | awk '{split($0,a,"-"); print a[1]}' \
     | awk '{split($0,a,"\""); print a[2]}')
 
-  CURRENT_HASURA_CLI_VERSION=$(hasura version --skip-update-check | jq -r .version)
-
-  if [ -n "$DETECTED_HASURA_ENGINE_VERSION" ] && [ "$DETECTED_HASURA_ENGINE_VERSION" != "$CURRENT_HASURA_CLI_VERSION" ]; then
+  if [ -n "$DETECTED_HASURA_ENGINE_VERSION" ]; then
       hasura update-cli --version $DETECTED_HASURA_ENGINE_VERSION
   fi
 fi
