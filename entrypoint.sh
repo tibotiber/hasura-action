@@ -25,10 +25,16 @@ fi
 if [ -n "$HASURA_ENGINE_VERSION" ]; then
     hasura update-cli --version $HASURA_ENGINE_VERSION
 else
-  hasura update-cli --version $(curl -s "$HASURA_ENDPOINT"/v1/version \
+  DETECTED_HASURA_ENGINE_VERSION=$(curl -s "$HASURA_ENDPOINT"/v1/version \
     | jq .version \
     | awk '{split($0,a,"-"); print a[1]}' \
     | awk '{split($0,a,"\""); print a[2]}')
+
+  CURRENT_HASURA_CLI_VERSION=$(hasura version --skip-update-check | jq -r .version)
+
+  if [ -n "$DETECTED_HASURA_ENGINE_VERSION" ] && [ "$DETECTED_HASURA_ENGINE_VERSION" != "$CURRENT_HASURA_CLI_VERSION" ]; then
+      hasura update-cli --version $DETECTED_HASURA_ENGINE_VERSION
+  fi
 fi
 
 # secrets can be printed, they are protected by Github Actions
