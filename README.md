@@ -14,7 +14,7 @@ This Action for [Hasura](https://hasura.io) enables arbitrary actions with the `
 
 - `HASURA_WORKDIR` - **Optional**. The path from the root of your repository to the directory where the `migrations` folder can be found.
 
-- `HASURA_ENGINE_VERSION` - **Optional**. The version of the hasura cli you want to use. (default is `stable`)
+- `HASURA_ENGINE_VERSION` - **Optional**. The version of the hasura cli you want to use. By default, it will match the version from your endpoint and fall back on `stable` if the version endpoint request fails.
 
 ## Example
 
