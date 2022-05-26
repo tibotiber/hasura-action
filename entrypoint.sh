@@ -17,11 +17,6 @@ if [ -n "$HASURA_WORKDIR" ]; then
     cd $HASURA_WORKDIR
 fi
 
-# create mock config file if none found
-if [ ! -f config.yaml ]; then
-    touch config.yaml
-fi
-
 if [ -n "$HASURA_ENGINE_VERSION" ]; then
     hasura update-cli --version $HASURA_ENGINE_VERSION
 else
