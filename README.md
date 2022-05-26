@@ -32,16 +32,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
       - name: Apply hasura migrations
-        uses: tibotiber/hasura-action@master
+        uses: tibotiber/hasura-action@master # use a tagged version instead of master
         with:
-          args: migrate apply
+          args: migrate apply --all-databases
         env:
           HASURA_ENDPOINT: ${{ secrets.HASURA_ENDPOINT }}
           HASURA_ADMIN_SECRET: ${{ secrets.HASURA_ADMIN_SECRET }}
           HASURA_WORKDIR: backend/hasura # replace this by your own path if needed
-          HASURA_ENGINE_VERSION: v1.3.3 # replace this by the version you need, remove to use stable
+          HASURA_ENGINE_VERSION: v2.6.2 # replace this by the version you need, remove to use stable
 ```
 
 ## License
