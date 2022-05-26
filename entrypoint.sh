@@ -8,9 +8,12 @@ if [ -z "$HASURA_ENDPOINT" ]; then
 fi
 
 command="hasura $* --skip-update-check --endpoint '$HASURA_ENDPOINT'"
+printed_command=$command
 
 if [ -n "$HASURA_ADMIN_SECRET" ]; then
     command="$command --admin-secret '$HASURA_ADMIN_SECRET'"
+    # make sure secret is not printed (see issue #15)
+    printed_command="$printed_command --admin-secret '***'" 
 fi
 
 if [ -n "$HASURA_WORKDIR" ]; then
@@ -31,6 +34,6 @@ else
 fi
 
 # secrets can be printed, they are protected by Github Actions
-echo "Executing $command from ${HASURA_WORKDIR:-./}"
+echo "Executing $printed_command from ${HASURA_WORKDIR:-./}"
 
 sh -c "$command"
