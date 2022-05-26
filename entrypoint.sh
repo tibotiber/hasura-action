@@ -7,7 +7,7 @@ if [ -z "$HASURA_ENDPOINT" ]; then
     exit 126
 fi
 
-command="hasura $* --endpoint '$HASURA_ENDPOINT'"
+command="hasura $* --skip-update-check --endpoint '$HASURA_ENDPOINT'"
 
 if [ -n "$HASURA_ADMIN_SECRET" ]; then
     command="$command --admin-secret '$HASURA_ADMIN_SECRET'"
