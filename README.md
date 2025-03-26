@@ -1,3 +1,8 @@
+> [!IMPORTANT]  
+> This repository has been archived to avoid breaking users' workflows.
+> 
+> You should use the maintained fork [smplrspace/hasura-action](https://github.com/smplrspace/hasura-action/issues) instead.
+
 # GitHub Actions for Hasura
 
 This Action for [Hasura](https://hasura.io) enables arbitrary actions with the `hasura` cli.
